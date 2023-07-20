@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "id": "bodiesbodies",
+  "version": "${version}",
+  "name": "Bodies! Bodies!",
+  "description": "",
+  "authors": [],
+  "contact": {
+    "repo": "https://github.com/gabri/BodiesBodies"
+  },
+  "license": "Apache-2.0",
+  "icon": "assets/bodiesbodies/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "client": [
+      "me.steven.bodiesbodies.client.BodiesBodiesClient"
+    ],
+    "main": [
+      "me.steven.bodiesbodies.BodiesBodies"
+    ]
+  },
+  "mixins": [
+    "bodiesbodies.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "fabric": "*",
+    "minecraft": "${minecraft_version}"
+  }
+}
