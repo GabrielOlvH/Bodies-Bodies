@@ -172,11 +172,13 @@ public class DeadBodyEntity extends Entity {
         this.deathDataId = nbt.getInt("DeathDataId");
         ServerWorld world = (ServerWorld) getWorld();
         DeathData deathData = getDeathData(world);
-        NbtCompound newNbt = new NbtCompound();
-        for (DeadBodyData data : deathData.savedData()) {
-            newNbt.put(data.getId(), data.write(new NbtCompound()));
+        if (deathData != null) {
+            NbtCompound newNbt = new NbtCompound();
+            for (DeadBodyData data : deathData.savedData()) {
+                newNbt.put(data.getId(), data.write(new NbtCompound()));
+            }
+            this.dataTracker.set(INVENTORY_DATA, newNbt);
         }
-        this.dataTracker.set(INVENTORY_DATA, newNbt);
     }
 
     @Override
