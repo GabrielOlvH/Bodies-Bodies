@@ -74,14 +74,6 @@ public class BodiesBodies implements ModInitializer {
             System.out.println("Error while loading Bodies! Bodies! config, loading default");
         }
 
-        ServerLivingEntityEvents.ALLOW_DEATH.register((entity, damageSource, damageAmount) -> {
-            if (!entity.getWorld().getGameRules().getBoolean(GameRules.KEEP_INVENTORY) && entity instanceof ServerPlayerEntity player) {
-                DeadBodyEntity deadBodyEntity = DeadBodyEntity.create(player);
-                entity.getWorld().spawnEntity(deadBodyEntity);
-            }
-            return true;
-        });
-
         DeadBodyDataProvider.register(VanillaDeadBodyData::new);
 
         ServerPlayNetworking.registerGlobalReceiver(TRANSFER_ALL_ITEMS_PACKET, (server, player, handler, buf, responseSender) -> {
@@ -141,5 +133,10 @@ public class BodiesBodies implements ModInitializer {
 
         if (FabricLoader.getInstance().isModLoaded("trinkets"))
             TrinketCompat.load();
+    }
+
+    public static void createDeadBody(ServerPlayerEntity player) {
+        DeadBodyEntity deadBodyEntity = DeadBodyEntity.create(player);
+        player.getWorld().spawnEntity(deadBodyEntity);
     }
 }

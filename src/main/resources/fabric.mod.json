@@ -3,10 +3,10 @@
   "id": "bodiesbodies",
   "version": "${version}",
   "name": "Bodies! Bodies!",
-  "description": "",
-  "authors": [],
+  "description": "No more items despawning, if you die, your dead body will lay on the cold hard ground waiting for you!",
+  "authors": ["GabrielOlvH"],
   "contact": {
-    "repo": "https://github.com/gabri/BodiesBodies"
+    "repo": "https://github.com/GabrielOlvH/Bodies-Bodies"
   },
   "license": "Apache-2.0",
   "icon": "assets/bodiesbodies/icon.png",
